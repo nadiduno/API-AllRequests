@@ -19,7 +19,7 @@ npm run dev
 
 # Tecnologias 
 
-[Node](https://nodejs.org/) | [NPM](https://www.npmjs.com/) | [Vite](https://vitejs.dev/) [Bootstrap](https://react-bootstrap.netlify.app/)
+[Node](https://nodejs.org/) | [NPM](https://www.npmjs.com/) | [Vite](https://vitejs.dev/) | [Bootstrap](https://react-bootstrap.netlify.app/)
 
 # FullStack
 
