@@ -25,5 +25,6 @@ npm run dev
 
 Bootcamp [Toti Diversidade](https://totidiversidade.com.br/) - professor [Lucas Marinho](https://github.com/lucastoti)
 
+[API - DummyJSON](https://dummyjson.com/docs/products)
 
 Com <💜 /> [Nadi Duno](https://www.linkedin.com/in/nadiduno/) © 2023
