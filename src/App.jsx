@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Button, ListGroup } from 'react-bootstrap';
+import { Accordion, Button, Form, ListGroup } from 'react-bootstrap';
+import './global.css'
 
 export function App() {
   const [tutoriais, setTutoriais] = useState([]);
@@ -90,13 +91,53 @@ export function App() {
       .then(response => trazerLista())
       .catch(err => console.log(err));
   };
-  // GET, POST, PUT/PATCH, DELETE
-
-  // for ou map
 
   return (
     <div style={{ padding: '30px' }}>
-      {/*{JSON.stringify(tutoriais)}*/}
+
+      <Accordion defaultActiveKey="0" flush alwaysOpen>
+        <Accordion.Item eventKey="0" title="Clique-me para abrir e fechar o acordeon">
+          <Accordion.Header>Adicionar Produto</Accordion.Header>
+          <Accordion.Body>
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Label>Produto</Form.Label>
+              <Form.Control style={{ width: '20rem' }} type="text" onChange={(e) => setTitulo(e.target.value)} placeholder="Escrever um nome para o produto" />
+              <Form.Label>Descrição</Form.Label>
+              <Form.Control style={{ width: '20rem' }} type="text" onChange={(e) => setDescricao(e.target.value)} placeholder="Escrever descrição para o produto" />
+              <Form.Check type="checkbox" onClick={(e) => setPublicado(e.target.checked)} label="Publicado" />
+              <Button onClick={criarTutorial}>Criar</Button>
+            </Form.Group>
+          </Accordion.Body>
+        </Accordion.Item>
+
+        <Accordion.Item eventKey="1" title="Clique-me para abrir e fechar o acordeon">
+          <Accordion.Header>Atualizar Produto</Accordion.Header>
+          <Accordion.Body>
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Label>ID</Form.Label>
+              <Form.Control style={{ width: '20rem' }} type="number" onChange={(e) => setId(e.target.value)} placeholder="Escrever o ID do produto" />
+              <Form.Label>Nova Descrição</Form.Label>
+              <Form.Control style={{ width: '20rem' }} type="text" onChange={(e) => setNovaDescricao(e.target.value)} placeholder="Escrever a nova descrição para o produto" />
+              <Button style={{ marginTop: '.5rem' }} onClick={atualizarPorID}>Atualizar</Button>
+            </Form.Group>
+          </Accordion.Body>
+        </Accordion.Item>
+
+        <Accordion.Item eventKey="2" title="Clique-me para abrir e fechar o acordeon">
+          <Accordion.Header>Eliminar Produto</Accordion.Header>
+          <Accordion.Body>
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Label>Eliminar por ID</Form.Label>
+              <Form.Control style={{ width: '20rem' }} type="number" onChange={(e) => setId(e.target.value)} placeholder="Escrever o ID do produto" />
+              <Button style={{ marginTop: '.5rem' }} onClick={deletarPorID}>Deletar</Button>
+            </Form.Group>
+          </Accordion.Body>
+        </Accordion.Item>
+      </Accordion>
+
+      <hr /><br /><br />
+      <h3 style={{ color: "var(--color3)" }}>Listado dos produtos</h3>
+      <br />
       <ListGroup>
         {
           tutoriais.length ?
@@ -106,54 +147,7 @@ export function App() {
             : <div></div>
         }
       </ListGroup>
-      {/*      <div>
-        <button
-          className="botao-azul"
-          onClick={trazerLista}
-        >
-          Trazer a lista de tutoriais
-        </button>
-        {tutoriais !== null ? JSON.stringify(tutoriais) : 'Variável vazia' }
-      </div>
-      <br />----------------<br />
-      <div>
-        <span className="titulo">Buscar por ID</span>
-        <input type="number" onChange={(e) => setId(e.target.value)} />
-        <button onClick={buscarPorID}>Buscar</button><br/>
-        {tutorial !== null ? tutorial.title : 'Variável vazia' }
-      </div>*/}
-      <br />----------------<br />
-      <div>
-        <span>Titulo</span>
-        <input type="text" onChange={(e) => setTitulo(e.target.value)} />
-      </div>
-      <div>
-        Descrição
-        <input type="text" onChange={(e) => setDescricao(e.target.value)} />
-      </div>
-      <div>
-        Publicado
-        <input type="checkbox" onClick={(e) => setPublicado(e.target.checked)} />
-      </div>
-      <div>
-        <button onClick={criarTutorial}>Criar</button>
-      </div>
-      <br />----------------<br />
-      <div>
-        Deletar por ID
-        <input type="number" onChange={(e) => setId(e.target.value)} />
-        <button onClick={deletarPorID}>Deletar</button><br />
-      </div>
-      <br />----------------<br />
-      <br />----------------<br />
-      <div>
-        Atualizar por ID
-        <input type="number" onChange={(e) => setId(e.target.value)} /><br />
-        Nova descrição:<input type="text" onChange={(e) => setNovaDescricao(e.target.value)} />
-        <button onClick={atualizarPorID}>Atualizar</button><br />
-      </div>
-      <br />----------------<br />
-      <br /><br /><br /><br /><br /><br /><br />
-    </div>
+      <br /><br />
+    </div >
   )
 }

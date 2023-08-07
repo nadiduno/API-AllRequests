@@ -6,6 +6,8 @@
 
 # React + Vite
 
+[![Ver video](https://github.com/nadiduno/AnimateLoading/blob/main/.github/ImgApp.gif)]
+
 ```Bash
 # Clonar projeto
 git clone https://github.com/nadiduno/API-AllRequests

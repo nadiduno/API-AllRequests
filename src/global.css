@@ -1,0 +1,25 @@
+:root {
+    --color1: #fff;
+    --color2: #1f1f1f;
+    --color3: #0B5ED7;
+}
+
+:focus {
+    outline: transparent;
+    box-shadow: 0 0 0 2px var(--color3);
+}
+
+* {
+    margin: 0.;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: var(--color1);
+    background: var(--color2);
+    font-family: 'Roboto', sansserif;
+    font-weight: 400;
+    font-size: 1rem;
+    -webkit-font-smoothing: antialiased;
+}
